@@ -12,13 +12,13 @@ import java.awt.event.ActionListener;
 import service.*;
 
 /**
- * ÔÚĞèÒªÊ¹ÓÃÊÂ¼şµÄ´°ÌåÀàÖĞ ÊµÏÖÊÂ¼ş½Ó¿Ú ÔÚĞèÒªÊ¹ÓÃÊÂ¼şµÄ¿Ø¼şÉÏÌí¼Ó×¢²áÊÂ¼ş
+ * åœ¨éœ€è¦ä½¿ç”¨äº‹ä»¶çš„çª—ä½“ç±»ä¸­ å®ç°äº‹ä»¶æ¥å£ åœ¨éœ€è¦ä½¿ç”¨äº‹ä»¶çš„æ§ä»¶ä¸Šæ·»åŠ æ³¨å†Œäº‹ä»¶
  * 
  * @author Administrator
  * 
  */
 public class LoginFrame extends JFrame implements ActionListener {
-	// ÀàµÄ³ÉÔ±<=>´°ÌåÉÏÃæµÄ¿Ø¼ş control<=>class
+	// ç±»çš„æˆå‘˜<=>çª—ä½“ä¸Šé¢çš„æ§ä»¶ control<=>class
 	private JLabel jLabelback;
 	private JButton jButton;
 	private JTextField jTextField;
@@ -27,32 +27,32 @@ public class LoginFrame extends JFrame implements ActionListener {
 	public LoginFrame() {
 		
 		this.setSize(600, 550);
-		this.setTitle("ÓÃ»§µÇÂ¼´°Ìå ");
+		this.setTitle("ç”¨æˆ·ç™»å½•çª—ä½“ ");
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);// ¿Õ²¼¾Ö
+		this.setLayout(null);// ç©ºå¸ƒå±€
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
-		this.setVisible(true);// ×îºó
+		this.setVisible(true);// æœ€å
 		
 	}
 
 	/**
-	 * ³õÊ¼»¯´°ÌåÔÚÆäËü³ÉÔ±
+	 * åˆå§‹åŒ–çª—ä½“åœ¨å…¶å®ƒæˆå‘˜
 	 */
 	public void init() {
-		// ÊµÀı»¯
-		ImageIcon iic = new ImageIcon("images/µÇÂ¼.jpg");
+		// å®ä¾‹åŒ–
+		ImageIcon iic = new ImageIcon("images/ç™»å½•.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
 		this.jTextField=new JTextField();
 		this.jPasswordField=new JPasswordField();
 		this.jComboBox = new JComboBox();
-		this.jComboBox.addItem("¹ÜÀíÔ±");
-		this.jComboBox.addItem("ÊÛ»õÔ±");
-		this.jComboBox.addItem("²É¹ºÔ±");
-		this.jButton=new JButton("µÇÂ¼");
+		this.jComboBox.addItem("ç®¡ç†å‘˜");
+		this.jComboBox.addItem("å”®è´§å‘˜");
+		this.jComboBox.addItem("é‡‡è´­å‘˜");
+		this.jButton=new JButton("ç™»å½•");
 		this.jButton.setBounds(200,346, 220, 41);
 		this.jTextField.setBounds(270, 230, 145, 25);
 		this.jPasswordField.setBounds(270, 265, 145, 25);
@@ -68,19 +68,19 @@ public class LoginFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("µÇÂ¼")) {
-				// ÊÕ¼¯Íê³ÉÊı¾İ
+		if (e.getActionCommand().equals("ç™»å½•")) {
+				// æ”¶é›†å®Œæˆæ•°æ®
 				String empname = this.jTextField.getText().trim();
 				String emppwd =  this.jPasswordField.getText().trim();
-				String empjob = this.jComboBox.getSelectedItem().toString();// ²»ÊÇnull
+				String empjob = this.jComboBox.getSelectedItem().toString();// ä¸æ˜¯null
 				if (empname.equals("") || emppwd.equals("")) {
-					JOptionPane.showMessageDialog(this, "ÄãÃ»ÓĞÊäÈëĞÅÏ¢");
-				} else if(empjob.equals("ÊÛ»õÔ±")) {
+					JOptionPane.showMessageDialog(this, "ä½ æ²¡æœ‰è¾“å…¥ä¿¡æ¯");
+				} else if(empjob.equals("å”®è´§å‘˜")) {
 					Empinfo empinfo = new Empinfo();
 					empinfo.setEmpName(empname);
 					empinfo.setEmpPwd(emppwd);
 					empinfo.setEmpJob(empjob);
-					// µ÷ÓÃ
+					// è°ƒç”¨
 
 					EmpinfoServer empInfoService = new EmpinfoServer();
 
@@ -91,7 +91,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 							this.dispose();
 
 						} else {
-							JOptionPane.showMessageDialog(this, "Ê§°Ü");
+							JOptionPane.showMessageDialog(this, "å¤±è´¥");
 						}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -100,12 +100,12 @@ public class LoginFrame extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(this, e1.getMessage());
 					}
 				}
-				else if(empjob.equals("¹ÜÀíÔ±")) {
+				else if(empjob.equals("ç®¡ç†å‘˜")) {
 					Empinfo empinfo = new Empinfo();
 					empinfo.setEmpName(empname);
 					empinfo.setEmpPwd(emppwd);
 					empinfo.setEmpJob(empjob);
-					// µ÷ÓÃ
+					// è°ƒç”¨
 
 					EmpinfoServer empInfoService = new EmpinfoServer();
 
@@ -116,7 +116,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 							this.dispose();
 
 						} else {
-							JOptionPane.showMessageDialog(this, "Ê§°Ü");
+							JOptionPane.showMessageDialog(this, "å¤±è´¥");
 						}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
@@ -125,12 +125,12 @@ public class LoginFrame extends JFrame implements ActionListener {
 						JOptionPane.showMessageDialog(this, e1.getMessage());
 					}
 				}
-				else if(empjob.equals("²É¹ºÔ±")) {
+				else if(empjob.equals("é‡‡è´­å‘˜")) {
 					Empinfo empinfo = new Empinfo();
 					empinfo.setEmpName(empname);
 					empinfo.setEmpPwd(emppwd);
 					empinfo.setEmpJob(empjob);
-					// µ÷ÓÃ
+					// è°ƒç”¨
 
 					EmpinfoServer empInfoService = new EmpinfoServer();
 
@@ -141,7 +141,7 @@ public class LoginFrame extends JFrame implements ActionListener {
 							this.dispose();
 
 						} else {
-							JOptionPane.showMessageDialog(this, "Ê§°Ü");
+							JOptionPane.showMessageDialog(this, "å¤±è´¥");
 						}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block

@@ -22,44 +22,44 @@ import bean.Goodsinfo;
 import service.GoodsinfoServer;
 
 public class GoodsFrame extends JFrame implements ActionListener {
-	private JScrollPane jScrollPane;// ¹ö¶¯Ãæ°å
-	private JTable jTable;// ±í¸ñ
-	private JLabel jLabelback;//±³¾°
-	private DefaultTableModel defaultTableModel;// ½¨Ä££»
-	private JButton jButton;// °´Å¥1
+	private JScrollPane jScrollPane;// æ»šåŠ¨é¢æ¿
+	private JTable jTable;// è¡¨æ ¼
+	private JLabel jLabelback;//èƒŒæ™¯
+	private DefaultTableModel defaultTableModel;// å»ºæ¨¡ï¼›
+	private JButton jButton;// æŒ‰é’®1
 	private JButton jButton3;
-	private JButton jButton2;// °´Å¥2
-	private JButton jButton4;// °´Å¥4
+	private JButton jButton2;// æŒ‰é’®2
+	private JButton jButton4;// æŒ‰é’®4
 	
-	private JLabel jLabel;// ±êÌâ
-	private JLabel jLabel2;// ¸ù¾İÉÌÆ·±àºÅ²éÑ¯
-	private JLabel jLabel3;// ¸ù¾İÉÌÆ·Ãû³Æ²éÑ¯
-	private JTextField jTextField;// ±àºÅ£»
-	private JTextField jTextField2;// Ãû³Æ
+	private JLabel jLabel;// æ ‡é¢˜
+	private JLabel jLabel2;// æ ¹æ®å•†å“ç¼–å·æŸ¥è¯¢
+	private JLabel jLabel3;// æ ¹æ®å•†å“åç§°æŸ¥è¯¢
+	private JTextField jTextField;// ç¼–å·ï¼›
+	private JTextField jTextField2;// åç§°
 	private GoodsinfoServer goodsinfoServer = new GoodsinfoServer();
 
 	public GoodsFrame() {
 		this.setSize(600, 550);
-		this.setTitle("ÉÌÆ·¹ÜÀí");
+		this.setTitle("å•†å“ç®¡ç†");
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
-		this.bindData();// ¼ÓÔØÊı¾İ
-		this.setVisible(true);// ×îºó
+		this.bindData();// åŠ è½½æ•°æ®
+		this.setVisible(true);// æœ€å
 	}
 
 	/**
-	 * ³õÊ¼»¯´°ÌåÆäËû³ÉÔ±¿Ø¼ş£»
+	 * åˆå§‹åŒ–çª—ä½“å…¶ä»–æˆå‘˜æ§ä»¶ï¼›
 	 */
 	public void init() {
-		this.jButton = new JButton("ĞŞ¸ÄÉÌÆ·");
-		this.jButton3=new JButton("ÏúÊÛ¼ÇÂ¼¹ÜÀí");
-		this.jButton2 = new JButton("²éÑ¯");
-		this.jButton4 = new JButton("·µ»Ø");
-		this.jLabel = new JLabel("ÉÌÆ·¹ÜÀí");
-		this.jLabel2 = new JLabel("ÉÌÆ·±àºÅ:");
-		this.jLabel3 = new JLabel("ÉÌÆ·Ãû³Æ:");
+		this.jButton = new JButton("ä¿®æ”¹å•†å“");
+		this.jButton3=new JButton("é”€å”®è®°å½•ç®¡ç†");
+		this.jButton2 = new JButton("æŸ¥è¯¢");
+		this.jButton4 = new JButton("è¿”å›");
+		this.jLabel = new JLabel("å•†å“ç®¡ç†");
+		this.jLabel2 = new JLabel("å•†å“ç¼–å·:");
+		this.jLabel3 = new JLabel("å•†å“åç§°:");
 		this.jTextField = new JTextField();
 		this.jTextField2 = new JTextField();
 		this.jScrollPane = new JScrollPane();
@@ -70,8 +70,8 @@ public class GoodsFrame extends JFrame implements ActionListener {
 		};
 	
 		this.jScrollPane.getViewport().add(jTable);
-		Object [] columns=new Object[] { "ÉÌÆ·±àºÅ", "ÉÌÆ·Í¼Æ¬", "ÉÌÆ·Ãû³Æ", "ÉÌÆ·Àà±ğ", "ÉÌÆ·½ø¼Û", "ÉÌÆ·ÊÛ¼Û",
-		"ÉÌÆ·ÊıÁ¿" };
+		Object [] columns=new Object[] { "å•†å“ç¼–å·", "å•†å“å›¾ç‰‡", "å•†å“åç§°", "å•†å“ç±»åˆ«", "å•†å“è¿›ä»·", "å•†å“å”®ä»·",
+		"å•†å“æ•°é‡" };
 		
 		this.defaultTableModel = new DefaultTableModel(new Object[][] {},columns
 				) {
@@ -92,11 +92,11 @@ public class GoodsFrame extends JFrame implements ActionListener {
 
 		jTable.setRowHeight(40);
 
-		// ÉèÖÃ×ø±ê£»
+		// è®¾ç½®åæ ‡ï¼›
 		this.jScrollPane.setBounds(25, 120, 540, 300);
 
 		/**
-		 * ±³¾°Ğé»¯
+		 * èƒŒæ™¯è™šåŒ–
 		 */
 		
 		DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
@@ -110,7 +110,7 @@ public class GoodsFrame extends JFrame implements ActionListener {
 		this.jScrollPane.getViewport().setOpaque(false);
 		
 		this.jLabel.setBounds(250, 30, 100, 30);
-		this.jLabel2.setBounds(80, 80, 80, 30);// ¸ù¾İ±àºÅ²éÑ¯£»
+		this.jLabel2.setBounds(80, 80, 80, 30);// æ ¹æ®ç¼–å·æŸ¥è¯¢ï¼›
 		this.jTextField.setBounds(160, 80, 80, 30);
 		this.jLabel3.setBounds(300, 80, 80, 30);
 		this.jTextField2.setBounds(380, 80, 80, 30);
@@ -118,9 +118,9 @@ public class GoodsFrame extends JFrame implements ActionListener {
 		this.jButton3.setBounds(30, 450, 120, 30);
 		this.jButton2.setBounds(290, 450, 100, 30);
 		this.jButton4.setBounds(450, 450, 100, 30);
-		ImageIcon iic = new ImageIcon("images/±³¾°±¸Ñ¡2.jpg");
+		ImageIcon iic = new ImageIcon("images/èƒŒæ™¯å¤‡é€‰2.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
 	
@@ -173,14 +173,14 @@ public class GoodsFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("²éÑ¯")) {
+		if (e.getActionCommand().equals("æŸ¥è¯¢")) {
 
 			try {
 			
-				// ²ÎÊı ³¡¾°
+				// å‚æ•° åœºæ™¯
 				int goodsid = 0;
 				String goodsname = "";
-				// 1 ÊäÈëÓÃ»§±àºÅ
+				// 1 è¾“å…¥ç”¨æˆ·ç¼–å·
 				if (!this.jTextField.getText().equals("")) {
 					goodsid = Integer
 							.parseInt(this.jTextField.getText().trim());
@@ -192,13 +192,13 @@ public class GoodsFrame extends JFrame implements ActionListener {
 				Goodsinfo goodsinfo = new Goodsinfo();
 				goodsinfo.setGoodsId(goodsid);
 				goodsinfo.setGoodsName(goodsname);
-				// view ÊÕ¼¯Íê³É <=>service <=>dao
+				// view æ”¶é›†å®Œæˆ <=>service <=>dao
 
 				ArrayList<Goodsinfo> goodsinfoList = goodsinfoServer
 						.selectgoodsinfo(goodsinfo);
-				// Ê¹ÓÃÈİÆ÷<=>Ä£ĞÍ
-				// Çå¿Õµ±Ç°Ä£ĞÍÖĞµÄÊı¾İ
-				// Ï¸½Ú ¼¯ºÏ <=>¶¯Ì¬ĞÔ
+				// ä½¿ç”¨å®¹å™¨<=>æ¨¡å‹
+				// æ¸…ç©ºå½“å‰æ¨¡å‹ä¸­çš„æ•°æ®
+				// ç»†èŠ‚ é›†åˆ <=>åŠ¨æ€æ€§
 				int count = this.defaultTableModel.getRowCount();
 
 				for (int i = 0; i < count; i++) {
@@ -225,17 +225,17 @@ public class GoodsFrame extends JFrame implements ActionListener {
 
 			catch (Exception e1) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(this, "ÄúÊäÈëµÄÊı¾İ´íÎó");
+				JOptionPane.showMessageDialog(this, "æ‚¨è¾“å…¥çš„æ•°æ®é”™è¯¯");
 			}
 		}
 
-		if (e.getActionCommand().equals("ĞŞ¸ÄÉÌÆ·")) {
-			// ´Ó±í¸ñÖĞ»ñÈ¡ÓÃ»§Ñ¡ÔñµÄĞĞ
+		if (e.getActionCommand().equals("ä¿®æ”¹å•†å“")) {
+			// ä»è¡¨æ ¼ä¸­è·å–ç”¨æˆ·é€‰æ‹©çš„è¡Œ
 
 			int index = this.jTable.getSelectedRow();
 			// System.out.println(index);
-			// ¸ù¾İÓÃ»§Ñ¡ÔñĞĞ »ñÈ¡µ±Ç°ĞĞµÄµ¥Ôª¸ñµÄÊı¾İ ¸ù¾İÁĞµÄÏÂ±ê
-			// ´¦Àí¿Õ
+			// æ ¹æ®ç”¨æˆ·é€‰æ‹©è¡Œ è·å–å½“å‰è¡Œçš„å•å…ƒæ ¼çš„æ•°æ® æ ¹æ®åˆ—çš„ä¸‹æ ‡
+			// å¤„ç†ç©º
 			try{
 			if (this.jTable.getValueAt(index, 0) != null
 					&& this.jTable.getValueAt(index, 1) != null
@@ -250,30 +250,30 @@ public class GoodsFrame extends JFrame implements ActionListener {
 				String goodsprice = this.jTable.getValueAt(index, 5).toString();
 				String goodsstock = this.jTable.getValueAt(index, 6).toString();
 				Goodsinfo goodsinfo = new Goodsinfo();
-				goodsinfo.setGoodsId(Integer.parseInt(goodsid));// String °ü×°Àà
+				goodsinfo.setGoodsId(Integer.parseInt(goodsid));// String åŒ…è£…ç±»
 				goodsinfo.setGoodsName(goodsname);
 				goodsinfo.setGoodsCategoryName(goodscategoryname);
 				goodsinfo.setGoodsCPrice(Double.parseDouble(goodscprice));
 				goodsinfo.setGoodsPrice(Double.parseDouble(goodsprice));
 				goodsinfo.setGoodsStock(Integer.parseInt(goodsstock));
 				goodsinfo.setGoodsPhoto(goodsphoto);
-				// ´´½¨ÓÃ»§±à¼­ĞÅÏ¢´°Ìå
-				// ´°ÌåÀàÓë´°Ìå ÀàÖ®¼ä´«µİÊı¾İ ¹¹Ôì·½·¨
+				// åˆ›å»ºç”¨æˆ·ç¼–è¾‘ä¿¡æ¯çª—ä½“
+				// çª—ä½“ç±»ä¸çª—ä½“ ç±»ä¹‹é—´ä¼ é€’æ•°æ® æ„é€ æ–¹æ³•
 				GoodsEditFrame goodsEditFrame = new GoodsEditFrame(goodsinfo);
 				this.dispose();
 			} else {
-				JOptionPane.showMessageDialog(this, "Êı¾İ´íÎó");
+				JOptionPane.showMessageDialog(this, "æ•°æ®é”™è¯¯");
 			}
 			}
 			catch (Exception e1) {
 				// TODO: handle exception
 			}
 		}
-		if (e.getActionCommand().equals("ÏúÊÛ¼ÇÂ¼¹ÜÀí")) {
+		if (e.getActionCommand().equals("é”€å”®è®°å½•ç®¡ç†")) {
 			MainFrame mainFrame = new MainFrame();
 			this.dispose();
 		}
-		if (e.getActionCommand().equals("·µ»Ø")) {
+		if (e.getActionCommand().equals("è¿”å›")) {
 			EmpInfoManageFrame empInfoManageFrame = new EmpInfoManageFrame();
 			this.dispose();
 		}

@@ -21,7 +21,7 @@ import service.InproInfoService;
 import bean.InproInfo;
 
 /***
- * ¶©µ¥ĞÅÏ¢ĞŞ¸Ä±í
+ * è®¢å•ä¿¡æ¯ä¿®æ”¹è¡¨
  * 
  * @author Administrator
  * 
@@ -30,43 +30,43 @@ import bean.InproInfo;
 public class OrderEditFrame extends JFrame implements ActionListener {
 	private JLabel jLabelback;
 	private InproInfo inproInfo;
-	private JScrollPane jScrollPane;// ¹ö¶¯Ãæ°å
-	private JTable jTable;// ±í¸ñ
-	private DefaultTableModel defaultTableModel;// ½¨Ä££»
-	private JButton jButton2;// °´Å¥2W
-	private JButton jButton3;// °´Å¥3
-	private JLabel jLabel;// ±êÌâ
+	private JScrollPane jScrollPane;// æ»šåŠ¨é¢æ¿
+	private JTable jTable;// è¡¨æ ¼
+	private DefaultTableModel defaultTableModel;// å»ºæ¨¡ï¼›
+	private JButton jButton2;// æŒ‰é’®2W
+	private JButton jButton3;// æŒ‰é’®3
+	private JLabel jLabel;// æ ‡é¢˜
 	private InproInfoService inproInfoService = new InproInfoService();
 	private static final String Defaultmat = "yyyy-MM-dd";
-	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// ÉèÖÃÈÕÆÚ¸ñÊ½
+	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// è®¾ç½®æ—¥æœŸæ ¼å¼
 
 	public OrderEditFrame(InproInfo inproInfo) {
 		this.inproInfo = inproInfo;
 		this.setSize(600, 550);
-		this.setTitle("¶©µ¥ĞŞ¸ÄÒ³Ãæ");
+		this.setTitle("è®¢å•ä¿®æ”¹é¡µé¢");
 		this.setLocationRelativeTo(null);
 		this.setLayout(null);
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
-		this.bindData();// ¼ÓÔØÊı¾İ
-		this.setVisible(true);// ×îºó
+		this.bindData();// åŠ è½½æ•°æ®
+		this.setVisible(true);// æœ€å
 	}
 
 	/**
-	 * ³õÊ¼»¯´°ÌåÆäËû³ÉÔ±¿Ø¼ş£»
+	 * åˆå§‹åŒ–çª—ä½“å…¶ä»–æˆå‘˜æ§ä»¶ï¼›
 	 * 
 	 * @param goodsinfo
 	 */
 	public void init() {
 		JFrame jf = new JFrame("VipinfoFrame");
-		ImageIcon iic = new ImageIcon("images/±³¾°±¸Ñ¡2.jpg");
+		ImageIcon iic = new ImageIcon("images/èƒŒæ™¯å¤‡é€‰2.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
-		this.jButton2 = new JButton("È·ÈÏĞŞ¸Ä");
-		this.jButton3 = new JButton("·µ»Ø");
-		this.jLabel = new JLabel("¶©µ¥¹ÜÀí");
+		this.jButton2 = new JButton("ç¡®è®¤ä¿®æ”¹");
+		this.jButton3 = new JButton("è¿”å›");
+		this.jLabel = new JLabel("è®¢å•ç®¡ç†");
 		this.jScrollPane = new JScrollPane();
 		this.jTable = new JTable() {
 			// public boolean isCellEditable(int row, int column) {
@@ -74,18 +74,18 @@ public class OrderEditFrame extends JFrame implements ActionListener {
 			// }
 		};
 		this.jScrollPane.getViewport().add(jTable);
-		Object [] columns=new Object[] { "½ø»õ±àºÅ", "½ø»õÈÕÆÚ", "¹©»õÉÌ±àºÅ", "ÉÌÆ·Ãû³Æ", "ÉÌÆ·ÊıÁ¿", "±¸×¢",
-		"Ö°Ô±±àºÅ" };
+		Object [] columns=new Object[] { "è¿›è´§ç¼–å·", "è¿›è´§æ—¥æœŸ", "ä¾›è´§å•†ç¼–å·", "å•†å“åç§°", "å•†å“æ•°é‡", "å¤‡æ³¨",
+		"èŒå‘˜ç¼–å·" };
 		this.defaultTableModel = new DefaultTableModel(new Object[][] {},columns
 				) {
 			private static final long serialVersionUID = 1L;
 
 		};
 		this.jTable.setModel(defaultTableModel);
-		// ÉèÖÃ×ø±ê£»
+		// è®¾ç½®åæ ‡ï¼›
 		this.jScrollPane.setBounds(25, 120, 540, 300);
 		/**
-		 * ±³¾°Ğé»¯
+		 * èƒŒæ™¯è™šåŒ–
 		 */
 		
 		DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
@@ -131,10 +131,10 @@ public class OrderEditFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("È·ÈÏĞŞ¸Ä")) {
+		if (e.getActionCommand().equals("ç¡®è®¤ä¿®æ”¹")) {
 			int index = this.jTable.getSelectedRow();
 			if(index<0){
-				JOptionPane.showMessageDialog(this, "ÄúÃ»ÓĞÑ¡Ôñ¶©µ¥");
+				JOptionPane.showMessageDialog(this, "æ‚¨æ²¡æœ‰é€‰æ‹©è®¢å•");
 			}
 			if (this.jTable.getValueAt(index, 0) != null
 					&& this.jTable.getValueAt(index, 1) != null
@@ -164,18 +164,18 @@ public class OrderEditFrame extends JFrame implements ActionListener {
                                                                                                 
 				} catch (ParseException e2) {
 					// TODO Auto-generated catch block
-					JOptionPane.showMessageDialog(this, "Äã½ñÌì¿ªĞÄÃ´");
+					JOptionPane.showMessageDialog(this, "ä½ ä»Šå¤©å¼€å¿ƒä¹ˆ");
 				}
 
-				// ´´½¨ÓÃ»§±à¼­ĞÅÏ¢´°Ìå
-				// ´°ÌåÀàÓë´°Ìå ÀàÖ®¼ä´«µİÊı¾İ ¹¹Ôì·½·¨
+				// åˆ›å»ºç”¨æˆ·ç¼–è¾‘ä¿¡æ¯çª—ä½“
+				// çª—ä½“ç±»ä¸çª—ä½“ ç±»ä¹‹é—´ä¼ é€’æ•°æ® æ„é€ æ–¹æ³•
 				boolean flag;
 				try {
 					flag = inproInfoService.updateInproInfo(inproInfo);
 					if (flag) {
-						JOptionPane.showMessageDialog(this, "ĞŞ¸Ä³É¹¦");
+						JOptionPane.showMessageDialog(this, "ä¿®æ”¹æˆåŠŸ");
 					} else {
-						JOptionPane.showMessageDialog(this, "ĞŞ¸ÄÊ§°Ü");
+						JOptionPane.showMessageDialog(this, "ä¿®æ”¹å¤±è´¥");
 					}
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -185,13 +185,13 @@ public class OrderEditFrame extends JFrame implements ActionListener {
 				OrderEditFrame orderEditFrame = new OrderEditFrame(inproInfo);
 				this.dispose();
 			} else {
-				JOptionPane.showMessageDialog(this, "Êı¾İ´íÎó");
+				JOptionPane.showMessageDialog(this, "æ•°æ®é”™è¯¯");
 			}
 
 		}
 
-		if (e.getActionCommand().equals("·µ»Ø")) {
-			// ´Ó±í¸ñÖĞ»ñÈ¡ÓÃ»§Ñ¡ÔñµÄĞĞ
+		if (e.getActionCommand().equals("è¿”å›")) {
+			// ä»è¡¨æ ¼ä¸­è·å–ç”¨æˆ·é€‰æ‹©çš„è¡Œ
 
 			OrderInfoFrame orderInfoFrame = new OrderInfoFrame();
 			this.dispose();

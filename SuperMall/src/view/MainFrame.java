@@ -60,14 +60,14 @@ public class MainFrame extends JFrame implements ActionListener {
 	private Font font = new Font("Times New Roman", Font.BOLD, 14);
 	private Dimension dimension = new Dimension(177, 24);
 	private JButton jButton;
-	private JButton jButton6;//×¢Ïú
-	private JButton jButton7;//²éÑ¯
-	private JButton jButton8; //É¾³ı
-	private JTextField jTextField;// ±àºÅ²éÑ¯
-	private JButton jButton9;//ÏÔÊ¾±¨±ı×´Í¼±í 
-	private JButton jButton10;//µ¼³öexcel±í
-	private JButton jButton11;//ÏÔÊ¾ÕÛÏßÍ¼
-	private JButton jButton12;//·µ»Ø
+	private JButton jButton6;//æ³¨é”€
+	private JButton jButton7;//æŸ¥è¯¢
+	private JButton jButton8; //åˆ é™¤
+	private JTextField jTextField;// ç¼–å·æŸ¥è¯¢
+	private JButton jButton9;//æ˜¾ç¤ºæŠ¥é¥¼çŠ¶å›¾è¡¨ 
+	private JButton jButton10;//å¯¼å‡ºexcelè¡¨
+	private JButton jButton11;//æ˜¾ç¤ºæŠ˜çº¿å›¾
+	private JButton jButton12;//è¿”å›
 	private JLabel jLabel;
 	private JLabel jLabel2;
 
@@ -79,33 +79,33 @@ public class MainFrame extends JFrame implements ActionListener {
 	public MainFrame() {
 
 		this.setSize(600, 550);
-		this.setTitle("ÏúÊÛ¼ÇÂ¼¹ÜÀí´°Ìå ");
+		this.setTitle("é”€å”®è®°å½•ç®¡ç†çª—ä½“ ");
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);// ¿Õ²¼¾Ö
+		this.setLayout(null);// ç©ºå¸ƒå±€
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
 		this.bindData();
-		this.setVisible(true);// ×îºó
+		this.setVisible(true);// æœ€å
 	}
 
 	private void init() {
 		JFrame jf = new JFrame("VipinfoFrame");
-		ImageIcon iic = new ImageIcon("images/±³¾°±¸Ñ¡2.jpg");
+		ImageIcon iic = new ImageIcon("images/èƒŒæ™¯å¤‡é€‰2.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
 		// TODO Auto-generated method stub
-		this.jButton = new JButton("Ë¢ĞÂ");
-		this.jButton6 = new JButton("×¢Ïú");
-		this.jButton7 = new JButton("²éÑ¯");
-		this.jButton8 = new JButton("É¾³ı¼ÇÂ¼");
-		this.jButton9 = new JButton("ÏÔÊ¾ÏúÁ¿±ı×´Í¼");
-		this.jButton10 = new JButton("µ¼³öExcel±¨±í");
-		this.jButton11 = new JButton("ÏÔÊ¾ÀûÈóÕÛÏßÍ¼");
-		this.jButton12 = new JButton("·µ»Ø");
-		this.jLabel = new JLabel("°´¶©µ¥ºÅ²éÑ¯");
-		this.jLabel2 = new JLabel("°´ÈÕÆÚ ²éÑ¯");
+		this.jButton = new JButton("åˆ·æ–°");
+		this.jButton6 = new JButton("æ³¨é”€");
+		this.jButton7 = new JButton("æŸ¥è¯¢");
+		this.jButton8 = new JButton("åˆ é™¤è®°å½•");
+		this.jButton9 = new JButton("æ˜¾ç¤ºé”€é‡é¥¼çŠ¶å›¾");
+		this.jButton10 = new JButton("å¯¼å‡ºExcelæŠ¥è¡¨");
+		this.jButton11 = new JButton("æ˜¾ç¤ºåˆ©æ¶¦æŠ˜çº¿å›¾");
+		this.jButton12 = new JButton("è¿”å›");
+		this.jLabel = new JLabel("æŒ‰è®¢å•å·æŸ¥è¯¢");
+		this.jLabel2 = new JLabel("æŒ‰æ—¥æœŸ æŸ¥è¯¢");
 		this.jTextField = new JTextField();
 		this.jScrollPane = new JScrollPane();
 		this.jTable = new JTable() {
@@ -114,14 +114,14 @@ public class MainFrame extends JFrame implements ActionListener {
 			}
 		};
 		Object [] columns=new Object[] {
-				"¶©µ¥±àºÅ", "Ö°Ô±±àºÅ","ÉÌÆ·±àºÅ", "ÉÌÆ·Ãû³Æ", "ÏúÊÛÊıÁ¿","»áÔ±±àºÅ", "Ó¯Àû", "ÏúÊÛÈÕÆÚ"};
+				"è®¢å•ç¼–å·", "èŒå‘˜ç¼–å·","å•†å“ç¼–å·", "å•†å“åç§°", "é”€å”®æ•°é‡","ä¼šå‘˜ç¼–å·", "ç›ˆåˆ©", "é”€å”®æ—¥æœŸ"};
 		this.dtm = new DefaultTableModel(new Object[][] {},columns );
-		// ÉèÖÃ¹ö¶¯Ãæ°åºÍ±í¸ñµÄ¹ØÏµ
+		// è®¾ç½®æ»šåŠ¨é¢æ¿å’Œè¡¨æ ¼çš„å…³ç³»
 		this.jScrollPane.getViewport().add(jTable);
-		// ÉèÖÃ±í¸ñÓëÄ£ĞÍµÄ¹ØÏµ
+		// è®¾ç½®è¡¨æ ¼ä¸æ¨¡å‹çš„å…³ç³»
 		this.jTable.setModel(dtm);
 		/**
-		 * ±³¾°Ğé»¯
+		 * èƒŒæ™¯è™šåŒ–
 		 */
 		
 		DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
@@ -133,16 +133,16 @@ public class MainFrame extends JFrame implements ActionListener {
 		this.jScrollPane.setOpaque(false);
 		this.jScrollPane.getViewport().setOpaque(false);
 		
-		// ÈÕÀú
-		datepick = new DatePicker(null, DefaultFormat, font, dimension);// ×Ô¶¨Òå²ÎÊıÖµ
+		// æ—¥å†
+		datepick = new DatePicker(null, DefaultFormat, font, dimension);// è‡ªå®šä¹‰å‚æ•°å€¼
 		datepick.setBounds(200, 60, 150, 30);
-		datepick.setLocale(Locale.CHINA);// ÉèÖÃ¹ú¼Ò
-		datepick.setTimePanleVisible(true);// ÉèÖÃÊ±ÖÓÃæ°å¿É¼û
-		// ¹¦ÄÜ°´Å¥
+		datepick.setLocale(Locale.CHINA);// è®¾ç½®å›½å®¶
+		datepick.setTimePanleVisible(true);// è®¾ç½®æ—¶é’Ÿé¢æ¿å¯è§
+		// åŠŸèƒ½æŒ‰é’®
 		this.jButton.setBounds(450, 60, 80, 30);
 		this.jButton12.setBounds(450, 410, 80, 30);
 		this.jButton6.setBounds(450, 460, 80, 30);
-		// ²éÑ¯
+		// æŸ¥è¯¢
 		this.jButton7.setBounds(360, 60, 80, 30);
 		this.jButton8.setBounds(30, 410, 160, 30);
 		this.jButton9.setBounds(30, 460, 160, 30);
@@ -179,11 +179,11 @@ public class MainFrame extends JFrame implements ActionListener {
 	}
 
 	/**
-	 * °ó¶¨Êı¾İ
+	 * ç»‘å®šæ•°æ®
 	 */
 	public void bindData() {
 
-		// ¶¯Ì¬Êı¾İ
+		// åŠ¨æ€æ•°æ®
 		try {
 			ArrayList<SaleInfo> saleinfoList = saleInfoService.getSaleInfo();
 			for (int i = 0; i < saleinfoList.size(); i++) {
@@ -210,25 +210,25 @@ public class MainFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("×¢Ïú")) {
+		if (e.getActionCommand().equals("æ³¨é”€")) {
 			LoginFrame myLoginFrame = new LoginFrame();
 			this.dispose();
-			JOptionPane.showMessageDialog(this, "×¢Ïú³É¹¦");
+			JOptionPane.showMessageDialog(this, "æ³¨é”€æˆåŠŸ");
 		}
-		if(e.getActionCommand().equals("·µ»Ø")){
+		if(e.getActionCommand().equals("è¿”å›")){
 			EmpInfoManageFrame empInfoManageFrame = new EmpInfoManageFrame();
 		}
 
-		if (e.getActionCommand().equals("²éÑ¯")) {
+		if (e.getActionCommand().equals("æŸ¥è¯¢")) {
 
 			try {
 				
-				// ²ÎÊı ³¡¾°
+				// å‚æ•° åœºæ™¯
 				int saleid = 0;
 				Date saleDate = null;
 				String chosedate = this.datepick.getText();
 				// String username = "";
-				// 1 ÊäÈëÓÃ»§±àºÅ
+				// 1 è¾“å…¥ç”¨æˆ·ç¼–å·
 				if (!this.jTextField.getText().equals("")) {
 					saleid = Integer.parseInt(this.jTextField.getText().trim());
 				}
@@ -239,12 +239,12 @@ public class MainFrame extends JFrame implements ActionListener {
 				SaleInfo saleinfo = new SaleInfo();
 				saleinfo.setSaleid(saleid);
 				saleinfo.setSaleDate(saleDate);
-				// view ÊÕ¼¯Íê³É <=>service <=>dao
+				// view æ”¶é›†å®Œæˆ <=>service <=>dao
 				ArrayList<SaleInfo> saleinfoList = saleInfoService
 						.selectSaleinfo(saleinfo);
-				// Ê¹ÓÃÈİÆ÷<=>Ä£ĞÍ
-				// Çå¿Õµ±Ç°Ä£ĞÍÖĞµÄÊı¾İ
-				// Ï¸½Ú ¼¯ºÏ <=>¶¯Ì¬ĞÔ
+				// ä½¿ç”¨å®¹å™¨<=>æ¨¡å‹
+				// æ¸…ç©ºå½“å‰æ¨¡å‹ä¸­çš„æ•°æ®
+				// ç»†èŠ‚ é›†åˆ <=>åŠ¨æ€æ€§
 				int count = this.dtm.getRowCount();
 
 				for (int i = 0; i < count; i++) {
@@ -266,16 +266,16 @@ public class MainFrame extends JFrame implements ActionListener {
 
 			} catch (Exception e1) {
 				// TODO Auto-generated catch block
-				JOptionPane.showMessageDialog(this, "ÄúÊäÈëµÄÊı¾İ´íÎó");
+				JOptionPane.showMessageDialog(this, "æ‚¨è¾“å…¥çš„æ•°æ®é”™è¯¯");
 				
 			}
 		}
-		// É¾³ı
-		if (e.getActionCommand().equals("É¾³ı¼ÇÂ¼")) {
+		// åˆ é™¤
+		if (e.getActionCommand().equals("åˆ é™¤è®°å½•")) {
 
 			int index = this.jTable.getSelectedRow();
 			if(index<0){
-				JOptionPane.showMessageDialog(this, "ÄúÎ´Ñ¡ÔñÒªÉ¾³ıµÄ¼ÇÂ¼");
+				JOptionPane.showMessageDialog(this, "æ‚¨æœªé€‰æ‹©è¦åˆ é™¤çš„è®°å½•");
 				return;
 			}
 				if (this.jTable.getValueAt(index, 0) != null) 
@@ -289,14 +289,14 @@ public class MainFrame extends JFrame implements ActionListener {
 					flag = saleInfoService.deletegoodsInfo(saleInfo);
 
 					if (flag) {
-						JOptionPane.showMessageDialog(this, "É¾³ı³É¹¦");
+						JOptionPane.showMessageDialog(this, "åˆ é™¤æˆåŠŸ");
 						int count = this.dtm.getRowCount();
 						for (int i = 0; i < count; i++) {
 							this.dtm.removeRow(0);
 						}
 						bindData();
 					} else {
-						JOptionPane.showMessageDialog(this, "É¾³ıÊ§°Ü");
+						JOptionPane.showMessageDialog(this, "åˆ é™¤å¤±è´¥");
 					}
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
@@ -305,7 +305,7 @@ public class MainFrame extends JFrame implements ActionListener {
 
 			}
 		}
-		if (e.getActionCommand().equals("ÏÔÊ¾ÏúÁ¿±ı×´Í¼")) {
+		if (e.getActionCommand().equals("æ˜¾ç¤ºé”€é‡é¥¼çŠ¶å›¾")) {
 			ArrayList<SaleInfo> saleinfoList;
 			try {
 				saleinfoList = saleInfoService.getPieSaleInfo();
@@ -314,15 +314,15 @@ public class MainFrame extends JFrame implements ActionListener {
 					dataset.setValue(saleinfoList.get(i).getGoodsName()+"", 
 							saleinfoList.get(i).getGoodsNum() );
 				}
-				 //2. ¹¹Ôìchart
-				JFreeChart chart = ChartFactory.createPieChart("ÉÌÆ·ÏúÁ¿±ÈÂÊÍ¼", dataset,  
+				 //2. æ„é€ chart
+				JFreeChart chart = ChartFactory.createPieChart("å•†å“é”€é‡æ¯”ç‡å›¾", dataset,  
 		                true, true, true);  
 		  
 		        Plot cp = chart.getPlot();  
-		        cp.setBackgroundPaint(ChartColor.WHITE); // ±³¾°É«ÉèÖÃ 
+		        cp.setBackgroundPaint(ChartColor.WHITE); // èƒŒæ™¯è‰²è®¾ç½® 
 
-				// 5. chart ÒÔswingĞÎÊ½Êä³ö
-				ChartFrame pieFrame = new ChartFrame("ÉÌÆ·ÏúÁ¿±¨±í", chart);
+				// 5. chart ä»¥swingå½¢å¼è¾“å‡º
+				ChartFrame pieFrame = new ChartFrame("å•†å“é”€é‡æŠ¥è¡¨", chart);
 				pieFrame.pack();
 				pieFrame.setLocationRelativeTo(null);
 				pieFrame.setVisible(true);
@@ -334,24 +334,24 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		}
 		
-		if (e.getActionCommand().equals("ÏÔÊ¾ÀûÈóÕÛÏßÍ¼")) {
+		if (e.getActionCommand().equals("æ˜¾ç¤ºåˆ©æ¶¦æŠ˜çº¿å›¾")) {
 			ArrayList<SaleInfo> saleinfoList;
 			try {
 				saleinfoList = saleInfoService.getCategorySaleInfo();
 		        DefaultCategoryDataset dataset = new DefaultCategoryDataset(); 
 				for (int i = 0; i < saleinfoList.size(); i++) {
-					dataset.addValue(saleinfoList.get(i).getSaleProfit(), "ÀûÈó", 
+					dataset.addValue(saleinfoList.get(i).getSaleProfit(), "åˆ©æ¶¦", 
 							saleinfoList.get(i).getSaleDate());
 				}
-				 //2. ¹¹Ôìchart
-				JFreeChart chart = ChartFactory.createLineChart("ÀûÈóÍ¼ ", "ÈÕÆÚ", "ÀûÈó",  
+				 //2. æ„é€ chart
+				JFreeChart chart = ChartFactory.createLineChart("åˆ©æ¶¦å›¾ ", "æ—¥æœŸ", "åˆ©æ¶¦",  
 		                dataset, PlotOrientation.VERTICAL, true, true, true);  
 		  
 		        CategoryPlot cp = chart.getCategoryPlot();  
-		        cp.setBackgroundPaint(ChartColor.WHITE); // ±³¾°É«ÉèÖÃ  
-		        cp.setRangeGridlinePaint(ChartColor.GRAY); // Íø¸ñÏßÉ«ÉèÖÃ  
-				// 5. chart ÒÔswingĞÎÊ½Êä³ö
-				ChartFrame pieFrame = new ChartFrame("ÉÌÆ·ÏúÁ¿±¨±í", chart);
+		        cp.setBackgroundPaint(ChartColor.WHITE); // èƒŒæ™¯è‰²è®¾ç½®  
+		        cp.setRangeGridlinePaint(ChartColor.GRAY); // ç½‘æ ¼çº¿è‰²è®¾ç½®  
+				// 5. chart ä»¥swingå½¢å¼è¾“å‡º
+				ChartFrame pieFrame = new ChartFrame("å•†å“é”€é‡æŠ¥è¡¨", chart);
 				pieFrame.pack();
 				pieFrame.setLocationRelativeTo(null);
 				pieFrame.setVisible(true);
@@ -363,9 +363,9 @@ public class MainFrame extends JFrame implements ActionListener {
 
 		}
 		
-		if(e.getActionCommand().equals("µ¼³öExcel±¨±í")){
+		if(e.getActionCommand().equals("å¯¼å‡ºExcelæŠ¥è¡¨")){
 			
-			//´´½¨¹¤×÷±¡
+			//åˆ›å»ºå·¥ä½œè–„
 	        try {
 	        		ArrayList<SaleInfo> saleinfoList;
 					saleinfoList = saleInfoService.getSaleInfo();
@@ -385,25 +385,25 @@ public class MainFrame extends JFrame implements ActionListener {
 			
 //			FileDialog fileDialog=new FileDialog(this);
 //			fileDialog.setVisible(true);
-				WritableWorkbook workbook = Workbook.createWorkbook(new File("E:\\test\\ÏúÊÛ¼ÇÂ¼ĞÅÏ¢.xls"));
-				//´´½¨ĞÂµÄÒ»Ò³
-				WritableSheet sheet = workbook.createSheet("ÏúÊÛ¼ÇÂ¼",0);
-				//´´½¨ÒªÏÔÊ¾µÄÄÚÈİ,´´½¨Ò»¸öµ¥Ôª¸ñ£¬µÚÒ»¸ö²ÎÊıÎªÁĞ×ø±ê£¬µÚ¶ş¸ö²ÎÊıÎªĞĞ×ø±ê£¬µÚÈı¸ö²ÎÊıÎªÄÚÈİ
-				Label label1  = new Label(0,0,"ÏúÊÛ±àºÅ");
+				WritableWorkbook workbook = Workbook.createWorkbook(new File("E:\\test\\é”€å”®è®°å½•ä¿¡æ¯.xls"));
+				//åˆ›å»ºæ–°çš„ä¸€é¡µ
+				WritableSheet sheet = workbook.createSheet("é”€å”®è®°å½•",0);
+				//åˆ›å»ºè¦æ˜¾ç¤ºçš„å†…å®¹,åˆ›å»ºä¸€ä¸ªå•å…ƒæ ¼ï¼Œç¬¬ä¸€ä¸ªå‚æ•°ä¸ºåˆ—åæ ‡ï¼Œç¬¬äºŒä¸ªå‚æ•°ä¸ºè¡Œåæ ‡ï¼Œç¬¬ä¸‰ä¸ªå‚æ•°ä¸ºå†…å®¹
+				Label label1  = new Label(0,0,"é”€å”®ç¼–å·");
 				sheet.addCell(label1);
-				Label label2  = new Label(1,0,"Ö°Ô±±àºÅ");
+				Label label2  = new Label(1,0,"èŒå‘˜ç¼–å·");
 				sheet.addCell(label2);
-				Label label3  = new Label(2,0,"ÉÌÆ·±àºÅ");
+				Label label3  = new Label(2,0,"å•†å“ç¼–å·");
 				sheet.addCell(label3);
-				Label label4  = new Label(3,0,"ÉÌÆ·Ãû³Æ");
+				Label label4  = new Label(3,0,"å•†å“åç§°");
 				sheet.addCell(label4);
-				Label label5  = new Label(4,0,"ÏúÊÛÊıÁ¿");
+				Label label5  = new Label(4,0,"é”€å”®æ•°é‡");
 				sheet.addCell(label5);      
-				Label label6  = new Label(5,0,"»áÔ±±àºÅ");
+				Label label6  = new Label(5,0,"ä¼šå‘˜ç¼–å·");
 				sheet.addCell(label6); 
-				Label label7  = new Label(6,0,"Ó¯Àû");
+				Label label7  = new Label(6,0,"ç›ˆåˆ©");
 				sheet.addCell(label7);
-				Label label8  = new Label(7,0,"ÏúÊÛÈÕÆÚ");
+				Label label8  = new Label(7,0,"é”€å”®æ—¥æœŸ");
 				sheet.addCell(label8); 
 				
 				for(int i=0;i<saleinfoList.size();i++){
@@ -426,7 +426,7 @@ public class MainFrame extends JFrame implements ActionListener {
 					sheet.addCell(l7);
 					sheet.addCell(l8);
 				}
-				//°Ñ´´½¨µÄÄÚÈİĞ´Èëµ½Êä³öÁ÷ÖĞ£¬²¢¹Ø±ÕÊä³öÁ÷
+				//æŠŠåˆ›å»ºçš„å†…å®¹å†™å…¥åˆ°è¾“å‡ºæµä¸­ï¼Œå¹¶å…³é—­è¾“å‡ºæµ
 				workbook.write();
 				workbook.close();
 				int count = this.dtm.getRowCount();
@@ -434,7 +434,7 @@ public class MainFrame extends JFrame implements ActionListener {
 					this.dtm.removeRow(0);
 				}
 				bindData();
-				JOptionPane.showMessageDialog(this, "µ¼³öÍê³É");
+				JOptionPane.showMessageDialog(this, "å¯¼å‡ºå®Œæˆ");
 				
 		} catch (Exception e1) {
 			// TODO Auto-generated catch block
@@ -443,7 +443,7 @@ public class MainFrame extends JFrame implements ActionListener {
 	        
 		}
 		
-		if (e.getActionCommand().equals("Ë¢ĞÂ")) {
+		if (e.getActionCommand().equals("åˆ·æ–°")) {
 			MainFrame mainFrame = new MainFrame();
 			this.dispose();
 			

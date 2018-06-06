@@ -27,7 +27,7 @@ import bean.InproInfo;
 import bean.SupplierInfo;
 
 /****
- * ²É¹ºÔ±ÏÂ¶©µ¥´°Ìå
+ * é‡‡è´­å‘˜ä¸‹è®¢å•çª—ä½“
  * 
  * @author Administrator
  * 
@@ -61,49 +61,49 @@ public class OrderFrame extends JFrame implements ActionListener {
 	private JTextField jTextField7;
 	private JTextField jTextField8;
 	private static final String Defaultmat = "yyyy-MM-dd";
-	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// ÉèÖÃÈÕÆÚ¸ñÊ½
+	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// è®¾ç½®æ—¥æœŸæ ¼å¼
 
 
 	public OrderFrame() {
 		this.setSize(600, 550);
-		this.setTitle("²É¹º¶©µ¥´°Ìå ");
+		this.setTitle("é‡‡è´­è®¢å•çª—ä½“ ");
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);// ¿Õ²¼¾Ö
+		this.setLayout(null);// ç©ºå¸ƒå±€
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
-		this.setVisible(true);// ×îºó
+		this.setVisible(true);// æœ€å
 	}
 
 	public OrderFrame(SupplierInfo supplierInfo) {
 		this.supplierInfo =supplierInfo;
 		this.setSize(600, 550);
-		this.setTitle("²É¹º¶©µ¥´°Ìå ");
+		this.setTitle("é‡‡è´­è®¢å•çª—ä½“ ");
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);// ¿Õ²¼¾Ö
+		this.setLayout(null);// ç©ºå¸ƒå±€
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
 		supplierInfo = new SupplierInfo();
 		
 		
-		this.setVisible(true);// ×îºó
+		this.setVisible(true);// æœ€å
 	}
 
 	public void init() {
-		ImageIcon iic = new ImageIcon("images/±³¾°±¸Ñ¡2.jpg");
+		ImageIcon iic = new ImageIcon("images/èƒŒæ™¯å¤‡é€‰2.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
-		this.jButton = new JButton("È·ÈÏÏÂµ¥");
-		this.jButton2 = new JButton("·µ»Ø");
-		this.jLabel = new JLabel("½ø»õÈÕÆÚ");
-		this.jLabel2 = new JLabel("¹©»õÉÌ±àºÅ");
-		this.jLabel3 = new JLabel("ÉÌÆ·Ãû³Æ");
-		this.jLabel4 = new JLabel("ÉÌÆ·ÊıÁ¿");
-		this.jLabel5 = new JLabel("±¸×¢");
-		this.jLabel6 = new JLabel("Ö°Ô±±àºÅ");
-		this.jLabel7 = new JLabel("ÉÌÆ·Àà±ğ");
-		this.jLabel8 = new JLabel("ÉÌÆ·Í¼Æ¬");
+		this.jButton = new JButton("ç¡®è®¤ä¸‹å•");
+		this.jButton2 = new JButton("è¿”å›");
+		this.jLabel = new JLabel("è¿›è´§æ—¥æœŸ");
+		this.jLabel2 = new JLabel("ä¾›è´§å•†ç¼–å·");
+		this.jLabel3 = new JLabel("å•†å“åç§°");
+		this.jLabel4 = new JLabel("å•†å“æ•°é‡");
+		this.jLabel5 = new JLabel("å¤‡æ³¨");
+		this.jLabel6 = new JLabel("èŒå‘˜ç¼–å·");
+		this.jLabel7 = new JLabel("å•†å“ç±»åˆ«");
+		this.jLabel8 = new JLabel("å•†å“å›¾ç‰‡");
 		
 		
 
@@ -164,14 +164,14 @@ public class OrderFrame extends JFrame implements ActionListener {
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("·µ»Ø")) {
+		if (e.getActionCommand().equals("è¿”å›")) {
 			PurchaseFrame purchaseFrame = new PurchaseFrame();
 			this.dispose();
 		}
-		if (e.getActionCommand().equals("È·ÈÏÏÂµ¥")) {
+		if (e.getActionCommand().equals("ç¡®è®¤ä¸‹å•")) {
 			String index = this.jTextField4.getText();
 			if (index.equals("")) {
-				JOptionPane.showMessageDialog(this, "ÉÌÆ·ÊıÁ¿²»ÄÜÎª¿Õ");
+				JOptionPane.showMessageDialog(this, "å•†å“æ•°é‡ä¸èƒ½ä¸ºç©º");
 
 			} else {
 
@@ -205,7 +205,7 @@ public class OrderFrame extends JFrame implements ActionListener {
 					try {
 						boolean flag = inproInfoService.addInproInfo(inproInfo);
 						if (flag) {
-							JOptionPane.showMessageDialog(this, "¹ºÂò³É¹¦");
+							JOptionPane.showMessageDialog(this, "è´­ä¹°æˆåŠŸ");
 //							this.dispose();	
 							// PurchaseFrame purchaseFrame = new
 							// PurchaseFrame();
@@ -234,13 +234,13 @@ public class OrderFrame extends JFrame implements ActionListener {
 							}
 
 						} else {
-							JOptionPane.showMessageDialog(this, "¹ºÂòÊ§°Ü");
+							JOptionPane.showMessageDialog(this, "è´­ä¹°å¤±è´¥");
 						}
 					} catch (Exception e1) {
 						// TODO Auto-generated catch block
 						// e1.printStackTrace();
 
-						// µ¯³ö¶Ô»°¿ò
+						// å¼¹å‡ºå¯¹è¯æ¡†
 						JOptionPane.showMessageDialog(this, e1.getMessage());
 					}
 

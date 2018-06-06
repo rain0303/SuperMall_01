@@ -23,7 +23,7 @@ import bean.InproInfo;
 import bean.SupplierInfo;
 
 /****
- * ¶©µ¥ÏêÏ¸ĞÅÏ¢´°Ìå
+ * è®¢å•è¯¦ç»†ä¿¡æ¯çª—ä½“
  * 
  * @author Administrator
  * 
@@ -41,23 +41,23 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 	private JButton jButton2;
 	private JButton jButton3;
 	private static final String Defaultmat = "yyyy-MM-dd";
-	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// ÉèÖÃÈÕÆÚ¸ñÊ½
+	SimpleDateFormat df = new SimpleDateFormat(Defaultmat);// è®¾ç½®æ—¥æœŸæ ¼å¼
 
 	public OrderInfoFrame() {
 		this.setSize(600, 550);
-		this.setTitle("¶©µ¥ÏêÏ¸ĞÅÏ¢´°Ìå ");
+		this.setTitle("è®¢å•è¯¦ç»†ä¿¡æ¯çª—ä½“ ");
 		this.setLocationRelativeTo(null);
-		this.setLayout(null);// ¿Õ²¼¾Ö
+		this.setLayout(null);// ç©ºå¸ƒå±€
 		this.setDefaultCloseOperation(DISPOSE_ON_CLOSE);
 		this.init();
 		this.bindData();
-		this.setVisible(true);// ×îºó£»
+		this.setVisible(true);// æœ€åï¼›
 	}
 
 	public void init() {
-		ImageIcon iic = new ImageIcon("images/±³¾°±¸Ñ¡2.jpg");
+		ImageIcon iic = new ImageIcon("images/èƒŒæ™¯å¤‡é€‰2.jpg");
 		iic.setImage(iic.getImage().getScaledInstance(600, 550, Image.SCALE_DEFAULT));
-		// Îª¿Ø¼şÌí¼Ó×¢²áÊÂ¼ş
+		// ä¸ºæ§ä»¶æ·»åŠ æ³¨å†Œäº‹ä»¶
 		this.jLabelback=new JLabel(iic);
 		this.jLabelback.setBounds(0, 0, 600, 550);
 		JFrame jf = new JFrame("VipinfoFrame");
@@ -67,13 +67,13 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 			}
 		};
 		Object [] columns=new Object[] {
-				"½ø»õ±àºÅ", "½ø»õÈÕÆÚ", "¹©»õÉÌ±àºÅ", "ÉÌÆ·Ãû³Æ", "ÉÌÆ·ÊıÁ¿", "±¸×¢", "Ö°Ô±±àºÅ" };
+				"è¿›è´§ç¼–å·", "è¿›è´§æ—¥æœŸ", "ä¾›è´§å•†ç¼–å·", "å•†å“åç§°", "å•†å“æ•°é‡", "å¤‡æ³¨", "èŒå‘˜ç¼–å·" };
 		this.dtm = new DefaultTableModel(new Object[][] {},columns );
 		this.jScrollPane = new JScrollPane();
-		this.jLabel = new JLabel("¶©µ¥ÏêÏ¸ĞÅÏ¢±í");
-		this.jButton = new JButton("ĞŞ¸Ä¶©µ¥");
-		this.jButton2 = new JButton("É¾³ı¶©µ¥");
-		this.jButton3 = new JButton("·µ»Ø");
+		this.jLabel = new JLabel("è®¢å•è¯¦ç»†ä¿¡æ¯è¡¨");
+		this.jButton = new JButton("ä¿®æ”¹è®¢å•");
+		this.jButton2 = new JButton("åˆ é™¤è®¢å•");
+		this.jButton3 = new JButton("è¿”å›");
 		this.jLabel.setBounds(210, 30, 120, 40);
 		this.jButton.setBounds(120, 320, 120, 40);
 		this.jButton2.setBounds(250, 320, 120, 40);
@@ -82,7 +82,7 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 		this.jTable.setModel(dtm);
 		this.jScrollPane.setBounds(40, 80, 500, 200);
 		/**
-		 * ±³¾°Ğé»¯
+		 * èƒŒæ™¯è™šåŒ–
 		 */
 		
 		DefaultTableCellRenderer cellRenderer = new DefaultTableCellRenderer();
@@ -134,15 +134,15 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
-		if (e.getActionCommand().equals("·µ»Ø")) {
+		if (e.getActionCommand().equals("è¿”å›")) {
 			PurchaseFrame purchaseFrame = new PurchaseFrame();
 			this.dispose();
 		}
 
-		if (e.getActionCommand().equals("ĞŞ¸Ä¶©µ¥")) {
+		if (e.getActionCommand().equals("ä¿®æ”¹è®¢å•")) {
 			int index = this.jTable.getSelectedRow();
 			if (index < 0) {
-				JOptionPane.showMessageDialog(this, "ÄúÃ»ÓĞÑ¡Ôñ¶©µ¥");
+				JOptionPane.showMessageDialog(this, "æ‚¨æ²¡æœ‰é€‰æ‹©è®¢å•");
 				return;
 			}
 			if (this.jTable.getValueAt(index, 0) != null
@@ -161,7 +161,7 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 				String remark = this.jTable.getValueAt(index, 5).toString();
 				String empId = this.jTable.getValueAt(index, 6).toString();
 				InproInfo inproInfo = new InproInfo();
-				inproInfo.setProId(Integer.parseInt(proId));// String °ü×°Àà
+				inproInfo.setProId(Integer.parseInt(proId));// String åŒ…è£…ç±»
 				inproInfo.setGoodsNum(Integer.parseInt(goodsNum));
 				inproInfo.setRemark(remark);
 				inproInfo.setGoodsName(goodsName);
@@ -180,16 +180,16 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 				OrderEditFrame orderEditFrame = new OrderEditFrame(inproInfo);
 				this.dispose();
 			} else {
-				JOptionPane.showMessageDialog(this, "Êı¾İ´íÎó");
+				JOptionPane.showMessageDialog(this, "æ•°æ®é”™è¯¯");
 			}
 
 		}
 		// TODO Auto-generated method stub
-		if (e.getActionCommand().equals("É¾³ı¶©µ¥")) {
+		if (e.getActionCommand().equals("åˆ é™¤è®¢å•")) {
 
 			int index = this.jTable.getSelectedRow();
 			if (index < 0) {
-				JOptionPane.showMessageDialog(this, "ÄúÃ»ÓĞÑ¡Ôñ¶©µ¥");
+				JOptionPane.showMessageDialog(this, "æ‚¨æ²¡æœ‰é€‰æ‹©è®¢å•");
 				return;
 			}
 			if (this.jTable.getValueAt(index, 0) != null
@@ -206,14 +206,14 @@ public class OrderInfoFrame extends JFrame implements ActionListener {
 					flag = inproInfoService.deleteInproInfo(inproInfo);
 
 					if (flag) {
-						JOptionPane.showMessageDialog(this, "É¾³ı³É¹¦");
+						JOptionPane.showMessageDialog(this, "åˆ é™¤æˆåŠŸ");
 						int count = this.dtm.getRowCount();
 						for (int i = 0; i < count; i++) {
 							this.dtm.removeRow(0);
 						}
 						bindData();
 					} else {
-						JOptionPane.showMessageDialog(this, "É¾³ıÊ§°Ü");
+						JOptionPane.showMessageDialog(this, "åˆ é™¤å¤±è´¥");
 					}
 				} catch (Exception e1) {
 					// TODO Auto-generated catch block
